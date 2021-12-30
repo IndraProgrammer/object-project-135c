@@ -1,11 +1,11 @@
 var status="";
 var video="";
 var object="";
+var text_value="";
 function preload(){
-    video=createVideo("video.mp4");
-    video.hide();
 }
 function setup(){
+    video=createCapture(VIDEO); 
     canvas=createCanvas(380,280);
     canvas.center();
 }
@@ -39,6 +39,8 @@ function draw(){
 function start(){
     objectdetector=ml5.objectDetector("cocossd",modelLoaded);
     document.getElementById("status").innerHTML="status: detecting objects";
+    text_value=document.getElementById("object_info").value;
+    console.log(text_value);
 }
 function modelLoaded(){
     console.log("modelLoaded");
