@@ -8,6 +8,7 @@ function setup(){
     video=createCapture(VIDEO); 
     canvas=createCanvas(380,280);
     canvas.center();
+    video.hide();
 }
 function  gotResults(error,results){
     if(error){
@@ -45,7 +46,4 @@ function start(){
 function modelLoaded(){
     console.log("modelLoaded");
     status=true;
-    video.loop();
-    video.speed(1);
-    video.volume(0);
 }
