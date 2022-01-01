@@ -1,4 +1,5 @@
 var status="";
+var synth = window.speechSynthesis;
 var video="";
 var object="";
 var text_value="";
@@ -34,6 +35,13 @@ function draw(){
             noFill();
             stroke("#0000FF");
             rect(object[i].x,object[i].y,object[i].width,object[i].height);
+            if(object[i].label==text_value){
+                document.getElementById("status").innerHTML="object is detected";
+                video.stop();
+                objectdetector.detect(gotResults);
+                var utterThis = new SpeechSynthesisUtterance("we have detected the object "+object[i].label);
+                synth.speak(utterThis);
+            }
         }
     }
 }
